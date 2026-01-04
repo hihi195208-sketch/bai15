@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Tin học 12 – Trang 88: CSS</title>
+
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      margin: 30px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    h2 {
+      color: #006699;
+      border-bottom: 2px solid #006699;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #444;
+    }
+
+    ul {
+      margin-left: 20px;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 3px 6px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #272822;
+      color: #f8f8f2;
+      padding: 12px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+
+    .box {
+      background: #ffffff;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>TIN HỌC 12 – TRANG 88<br>
+      Luyện tập & Vận dụng CSS</h1>
+
+  <!-- Luyện tập 1 -->
+  <div class="box">
+    <h2>Luyện tập 1</h2>
+    <p><strong>Thiết lập hệ màu cơ bản (17 màu của CSS 2.1) theo bộ ba tham số RGB:</strong></p>
+
+    <ul>
+      <li>Đen (Black): RGB(0, 0, 0)</li>
+      <li>Trắng (White): RGB(255, 255, 255)</li>
+      <li>Đỏ (Red): RGB(255, 0, 0)</li>
+      <li>Xanh lá cây (Green): RGB(0, 128, 0)</li>
+      <li>Xanh lá cây tươi (Lime): RGB(0, 255, 0)</li>
+      <li>Xanh dương (Blue): RGB(0, 0, 255)</li>
+      <li>Xanh lam (Navy): RGB(0, 0, 128)</li>
+      <li>Vàng (Yellow): RGB(255, 255, 0)</li>
+      <li>Xanh da trời (Aqua): RGB(0, 255, 255)</li>
+      <li>Xanh lục lam (Teal): RGB(0, 128, 128)</li>
+      <li>Hồng tím (Fuchsia): RGB(255, 0, 255)</li>
+      <li>Tím (Purple): RGB(128, 0, 128)</li>
+      <li>Đỏ sẫm (Maroon): RGB(128, 0, 0)</li>
+      <li>Xanh ô-liu (Olive): RGB(128, 128, 0)</li>
+      <li>Xám (Gray): RGB(128, 128, 128)</li>
+      <li>Xám nhạt (Silver): RGB(192, 192, 192)</li>
+      <li>Cyan: RGB(0, 255, 255)</li>
+    </ul>
+  </div>
+
+  <!-- Luyện tập 2 -->
+  <div class="box">
+    <h2>Luyện tập 2</h2>
+    <p><strong>Khi nào các mẫu định dạng <code>E F</code> và <code>E &gt; F</code> có tác dụng như nhau?</strong></p>
+
+    <p>
+      Hai mẫu định dạng <code>E F</code> (bộ chọn hậu duệ) và
+      <code>E &gt; F</code> (bộ chọn con trực tiếp) có tác dụng như nhau
+      khi <strong>phần tử F là con trực tiếp của phần tử E</strong>.
+    </p>
+
+    <p>
+      Trong trường hợp này, cả hai mẫu đều áp dụng kiểu cho phần tử F nằm trong E.
+    </p>
+  </div>
+
+  <!-- Vận dụng 1 -->
+  <div class="box">
+    <h2>Vận dụng 1</h2>
+
+    <h3>a) Mẫu định dạng E1 E2 E3</h3>
+    <p>
+      Đây là bộ chọn hậu duệ, áp dụng cho phần tử E3 nằm trong E2 và E2 nằm trong E1,
+      không yêu cầu là con trực tiếp.
+    </p>
+
+    <pre>
+.container .parent .child span {
+  color: red;
+}
+    </pre>
+
+    <p>
+      Mẫu trên áp dụng cho thẻ <code>span</code> nằm trong phần tử
+      <code>.child</code>, thuộc <code>.parent</code>, và nằm trong
+      <code>.container</code>.
+    </p>
+
+    <h3>b) Mẫu định dạng E1 &gt; E2 &gt; E3</h3>
+    <p>
+      Đây là bộ chọn con trực tiếp, yêu cầu E2 là con trực tiếp của E1
+      và E3 là con trực tiếp của E2.
+    </p>
+
+    <pre>
+.parent &gt; .child &gt; span {
+  color: blue;
+}
+    </pre>
+  </div>
+
+  <!-- Vận dụng 2 -->
+  <div class="box">
+    <h2>Vận dụng 2</h2>
+
+    <h3>a) Mẫu định dạng E + F + G</h3>
+    <p>
+      Đây là bộ chọn anh em liền kề, áp dụng cho G khi G đứng ngay sau F
+      và F đứng ngay sau E.
+    </p>
+
+    <pre>
+h2 + p + p {
+  font-style: italic;
+}
+    </pre>
+
+    <h3>b) Mẫu định dạng E &gt; F + G</h3>
+    <p>
+      Mẫu này áp dụng cho G khi F là con trực tiếp của E
+      và G là anh em liền kề đứng sau F.
+    </p>
+
+    <pre>
+.container &gt; ul + p {
+  color: green;
+}
+    </pre>
+  </div>
+
+</body>
+</html>
